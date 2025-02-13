@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermarket Inventory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 400px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #28a745;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button.cancel {
+            background: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Supermarket Inventory Management</h2>
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" placeholder="Enter product name">
+        </div>
+        <div class="form-group">
+            <label>Barcode No</label>
+            <input type="text" placeholder="Enter barcode number">
+        </div>
+        <div class="form-group">
+            <label>Category</label>
+            <select>
+                <option>Select Category</option>
+                <option>Grocery</option>
+                <option>Electronics</option>
+                <option>Clothing</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Brand Name</label>
+            <input type="text" placeholder="Enter brand name">
+        </div>
+        <div class="form-group">
+            <label>Tax (%)</label>
+            <input type="number" placeholder="Enter tax percentage">
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="number" placeholder="Enter price">
+        </div>
+        <div class="buttons">
+            <button type="submit">Save</button>
+            <button type="button" class="cancel">Cancel</button>
+        </div>
+    </div>
+</body>
+</html>

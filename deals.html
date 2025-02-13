@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murugan Stores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 400px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #28a745;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button.cancel {
+            background: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Supermarket Inventory Management</h2>
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" id="productName" value="Example Product" readonly>
+        </div>
+        <div class="form-group">
+            <label>Price (Rs)</label>
+            <input type="number" id="productPrice" value="30">
+        </div>
+        <div class="buttons">
+            <button onclick="saveProduct()">Save</button>
+            <button class="cancel">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        let originalPrice = 30;
+
+        function saveProduct() {
+            let newPrice = document.getElementById("productPrice").value;
+            if (newPrice < originalPrice) {
+                alert("Price reduced! Triggering email notification...");
+                fetch("/send_email", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ product: "Example Product", newPrice: newPrice })
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error("Error:", error));
+            }
+        }
+    </script>
+</body>
+</html>
